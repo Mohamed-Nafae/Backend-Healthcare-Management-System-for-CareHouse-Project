@@ -1,0 +1,55 @@
+### get all appointents
+GET http://127.0.0.1:5001/api/appointments/
+
+### get test by appointment id
+GET http://127.0.0.1:5001/api/appointments/6454af610ac07c571e4f074f
+
+### get test by patient id
+GET http://127.0.0.1:5001/api/appointments/patients/645ac11d6bddc90a33ed26f5
+
+### get appointments by query
+GET http://127.0.0.1:5001/api/appointments/query?typeofAppointment=Consultati
+
+### create test
+POST http://localhost:5001/api/appointments/
+Content-Type: application/json
+
+{
+    "typeofAppointment": "Consultation",
+    "location": {
+        "address":"123 Main Street Apartment 4B Toronto, CA 90001",
+        "country": "Canada",
+        "city": "Toronto",
+        "longitude": -79.3832,
+        "latitude": 43.6532
+    },
+    "qrCode_id": "abcd1234",
+    "patient": "6453c463032b03b47958b74f"
+}
+
+### update test
+PUT http://localhost:5001/api/appointments/645245c411742b609e109551
+Content-Type: application/json
+
+{
+    "typeofAppointment": "Consultation",
+    "date": "2023-06-02",
+    "time": "11:00 AM",
+    "status": "Scheduled",
+    "location": {
+        "address":"123 Main Street Apartment 4B Toronto, CA 90001",
+        "country": "Canada",
+        "city": "Toronto",
+        "longitude": -79.3832,
+        "latitude": 43.6532
+    },
+    "careTaker": false,
+    "qrCode_id": "abcd1234",
+    "patient": "617a67d1d7e383c3e2f0a67a",
+    "doctor": "617a67d1d7e383c3e2f0a67b",
+    "nurse": "617a67d1d7e383c3e2f0a67c"
+}
+
+### delete test
+DELETE http://localhost:5001/api/appointments/645f3782de6aca78a9361e5e
+
