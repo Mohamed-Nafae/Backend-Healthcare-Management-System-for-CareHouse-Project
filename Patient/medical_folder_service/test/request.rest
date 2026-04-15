@@ -1,0 +1,28 @@
+### get all medicalFolder 
+GET http://localhost:5002/api/medicalFolders
+
+### get one medicalFolder by id
+GET http://localhost:5002/api/medicalFolders/6456c93bbc659328405d5082
+
+### create one medicalFolder
+POST http://localhost:5002/api/medicalFolders
+Content-Type: application/json
+
+{
+  "patient": "61570a49e26c6617c8f1d83c",
+  "medicalFolder_content": "6456712e2417c8abfaf011b9"
+}
+
+### update one medicalFolder by id
+PUT http://localhost:5002/api/medicalFolders/64576a86e9972b142586ae8d
+Content-Type: application/json
+
+{
+    "reports":"61570a49e26c6617c8f1d834"
+}
+
+### delete one report by id in the medical folder id
+DELETE http://localhost:5002/api/medicalFolders/6456c9a7bc659328405d508f/reports/61570a49e26c6617c8f1d83c
+
+### delete one medicalFolder by id
+DELETE http://localhost:5002/api/medicalFolders/6456c9a7bc659328405d508f
