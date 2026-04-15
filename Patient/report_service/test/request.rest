@@ -1,0 +1,18 @@
+### get all report by patient id 
+GET http://localhost:5005/api/reports/patients/645906fa75abde04acd9f0b7
+
+### get one report by id
+GET http://localhost:5005/api/reports/6456a68bdde1350f4509b390
+
+### create one report
+POST http://localhost:5005/api/reports
+Content-Type: application/json
+
+{
+  "patient": "645a04fa9ce715da7a4dbdf9",
+  "doctor": "645906fa75abde04acd9f0be",
+  "report_content": "645a04fa3f2174731f6fe5cc"
+}
+
+### delete one report by id
+DELETE http://localhost:5005/api/reports/6456a6d3dde1350f4509b39f
