@@ -1,0 +1,34 @@
+### get all the admins 
+GET http://localhost:5010/api/admins
+
+### get one admin by email 
+GET http://localhost:5010/api/admins/query?email=johndoe@example.com
+
+### get one admin by refreshToken 
+ GET http://localhost:5010/api/admins/query?refreshToken=yourRefreshToken
+
+### create one admin
+POST http://localhost:5010/api/admins
+Content-Type: application/json
+
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email_address": "johndoe@example.com",
+  "password": "mypassword",
+  "phone_number": 1234567890
+}
+
+### update one admin by id 
+PUT http://localhost:5010/api/admins/64627512273b1754e84ae0cf
+Content-Type: application/json
+
+{
+  "email_address": "newemail@example.com",
+  "phone_number": 9876543210,
+}
+
+### delete one admin by id
+DELETE http://localhost:5010/api/admins/646275e4273b1754e84ae0d8
+
+
