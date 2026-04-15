@@ -1,0 +1,54 @@
+### get one nurse by id 
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVmZWM1ZDRkOTUwNGNmYThhYzA3NGMiLCJlbWFpbF9hZGRyZXNzIjoiZGFuaWFAZXhhbXBsZS5jb20iLCJyb2xlIjoyMDIxLCJpYXQiOjE2ODQxNjAxNDcsImV4cCI6MTY4NDE2MDc0N30.oobgR_9OMGyhTaq7ltWQ7dXjFeTUcAKS1nVwh8QVRwA
+
+### display image by nurse id 
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/image
+
+### get one task id in nurse id
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/tasks/645f44ff490f2c9cfe8b22a9
+
+### get all tasks id in nurse id
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/tasks
+
+### get one patient by id in task id in nurse id
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/tasks/645f44ff490f2c9cfe8b22a9/patients/645ac11d6bddc90a33ed26f5
+
+### display image patient id in task id in nurse id
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/tasks/645f44ff490f2c9cfe8b22a9/patients/645ac11d6bddc90a33ed26f5/image
+
+### updata one task by nurse id
+PUT http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/tasks/645f44ff490f2c9cfe8b22a9
+Content-Type: application/json
+
+{
+  "finished": true,
+  "qrCode_id":"abcd1234"
+}
+
+### get all absences in nurses id  
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/absences
+
+### get one absences by id in nurses id  
+GET http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/absences/6460d6bc2d75f623cee73e17
+
+### create one absences in nurses id  
+POST http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/absences
+Content-Type: application/json
+
+{
+  "startDate": "2023-05-12T00:00:00.000Z",
+  "endDate": "2023-05-12T18:00:00.000Z",
+  "reason": "Sick leave"
+}
+
+### update reason in one absence by id in nurse id
+PUT http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/absences/6460d7512d75f623cee73e24
+Content-Type: application/json
+
+{
+  "reason": "Sick leav"
+}
+
+###  delete one absence by id in nurse id
+DELETE http://127.0.0.1:5006/api/nurses/645fec5d4d9504cfa8ac074c/absences/6460d7512d75f623cee73e24

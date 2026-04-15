@@ -1,0 +1,47 @@
+### get one driver by id 
+GET http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c
+
+### display image by driver id 
+GET http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/image
+
+### get one task id in driver id
+GET http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/tasks/645f44ff490f2c9cfe8b22a9
+
+### get all tasks id in driver id
+GET http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/tasks
+
+### updata one task by driver id
+PUT http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/tasks/645f44ff490f2c9cfe8b22a9
+Content-Type: application/json
+
+{
+  "finished": true,
+  "qrCode_id":"abcd1234"
+}
+
+### get all absences in drivers id  
+GET http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/absences
+
+### get one absences by id in drivers id  
+GET http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/absences/6460d6bc2d75f623cee73e17
+
+### create one absences in drivers id  
+POST http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/absences
+Content-Type: application/json
+
+{
+  "startDate": "2023-05-12T00:00:00.000Z",
+  "endDate": "2023-05-12T18:00:00.000Z",
+  "reason": "Sick leave"
+}
+
+### update reason in one absence by id in driver id
+PUT http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/absences/6460d7512d75f623cee73e24
+Content-Type: application/json
+
+{
+  "reason": "Sick leav"
+}
+
+###  delete one absence by id in driver id
+DELETE http://127.0.0.1:5006/api/drivers/645fec5d4d9504cfa8ac074c/absences/6460d7512d75f623cee73e24

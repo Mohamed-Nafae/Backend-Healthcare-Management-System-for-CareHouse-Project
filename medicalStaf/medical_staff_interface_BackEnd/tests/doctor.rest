@@ -1,0 +1,61 @@
+### get one doctor by id 
+GET http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVkMTA2OTM3OTdiMzMxMzZkMWJiYjMiLCJlbWFpbF9hZGRyZXNzIjoiZGFuaWFsQGV4YW1wbGUuY29tIiwicm9sZSI6MTk1NCwiaWF0IjoxNjg0MTYwMDg2LCJleHAiOjE2ODQxNjA2ODZ9.FeothQpsxiodu-6SswjjVuJ9-7tusUtPPiNNQ3Yagis
+### display image by doctor id 
+GET http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/image
+
+### get one task id in doctor id
+GET http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/tasks/64620c5a6a81c2a488f14572
+
+### get all tasks id in doctor id
+GET http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/tasks
+
+### delete one appointment and one task id by doctor id
+PUT http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/tasks/646210886a81c2a488f14590
+Content-Type: application/json
+
+{
+  "finished": true,
+  "qrCode_id":"abcd1234"
+}
+
+### get all absences in doctors id  
+GET http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/absences
+
+### get one absences by id in doctors id  
+GET http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/absences/6462098445bf32432f60a765
+
+### create one absences in doctors id  
+POST http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/absences
+Content-Type: application/json
+
+{
+  "startDate": "2023-05-12T00:00:00.000Z",
+  "endDate": "2023-05-12T18:00:00.000Z",
+  "reason": "Sick leave"
+}
+
+### update reason in one absence by id in doctor id
+PUT http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/absences/6462098445bf32432f60a765
+Content-Type: application/json
+
+{
+  "reason": "Sick leav"
+}
+
+###  delete one absence by id in doctor id
+DELETE http://127.0.0.1:5006/api/doctors/645d10693797b33136d1bbb3/absences/6462098445bf32432f60a765
+
+### create_one_report_in_doctor_id_in_patient_id_in_medicalFolder_id
+POST http://127.0.0.1:5006/api/doctors/6465277209354a7b3c9c8bdc/tasks/647f784840bfae8e04fdae58/patients/645ac11d6bddc90a33ed26f5/medicalFolders/645ac11dfb88b7d4738da5c2/reports
+Content-Type: multipart/form-data; boundary=IamSplitter
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDY1Mjc3MjA5MzU0YTdiM2M5YzhiZGMiLCJlbWFpbF9hZGRyZXNzIjoiZGFuaUBleGFtcGxlLmNvbSIsInJvbGUiOjE5NTQsImlhdCI6MTY4NjA3NjU0OSwiZXhwIjoxNjg2MDc3MTQ5fQ.hJ8teNPqUUc47EN1Xz23s2KGmHiDGAzc5e4tVQMzrzQ
+
+--IamSplitter
+Content-Disposition: form-data; name="file"; filename="report1.pdf"
+Content-Type: application/pdf
+
+< ./report1.pdf
+--IamSplitter--
+
+### test patient and medical forlder and report with doctor

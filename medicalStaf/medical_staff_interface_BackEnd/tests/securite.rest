@@ -1,0 +1,46 @@
+### login test 
+POST http://127.0.0.1:5006/api/doctors/login
+Content-Type: application/json
+
+{
+    "email":"dani@example.com",
+    "password":"password123"
+}
+
+### get access token test 
+GET http://127.0.0.1:5006/api/doctors/token
+
+### logout test
+GET http://127.0.0.1:5006/api/doctors/logout
+
+### test of nurse 
+### login test
+POST http://127.0.0.1:5006/api/nurses/login
+Content-Type: application/json
+
+{
+    "email":"dani@example.com",
+    "password":"password123"
+}
+
+### get access token test 
+GET http://127.0.0.1:5006/api/nurses/token
+
+### logout test
+GET http://127.0.0.1:5006/api/nurses/logout
+
+### test of driver
+### login test
+POST http://127.0.0.1:5006/api/drivers/login
+Content-Type: application/json
+
+{
+    "email":"dania@example.com",
+    "password":"password123"
+}
+
+### get access token test 
+GET http://127.0.0.1:5006/api/drivers/token
+
+### logout test
+GET http://127.0.0.1:5006/api/drivers/logout
