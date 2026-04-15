@@ -1,0 +1,63 @@
+### get all nurses
+GET http://localhost:5007/api/nurses
+
+### get one nurse by email or by refreshToken :
+### test1:
+GET http://localhost:5007/api/nurses/query/?email=johndo@example.com
+### test2:
+GET http://localhost:5007/api/nurses/query/?refreshToken=ksjdlkfj
+### test3: 
+GET http://localhost:5007/api/nurses/query/?email=johndo@example.co
+
+### get one nurse by id 
+GET http://localhost:5007/api/nurses/645cc24c986dd883ffa87b67
+
+### create one nurse
+POST http://localhost:5007/api/nurses
+Content-Type: application/json
+
+{
+  "first_name": "Danial",
+  "last_name": "Dalas",
+  "email_address": "danial@example.com",
+  "password": "password123",
+  "gender": "male",
+  "phone_number": "123456789",
+  "birth_date": "1990-01-01",
+  "location": {
+    "address": "123 Main St",
+    "country": "USA",
+    "city": "New York"
+  }
+}
+
+### update one nurse 
+PUT http://localhost:5007/api/nurses/64551e79268bc957c9b9ad48
+Content-Type: application/json
+
+{
+  "first_name": "Joh",
+  "last_name": "Dok",
+  "gender": "female",
+  "medical_reports": "616363601d30a33b540a2305",
+  "image":"616363601d30a33b540a2305", 
+  "appointments":"616363601d30a33b540a230f",
+  "refreshToken":["jdlkjsl","kdjlsj","ksjdlkfj"]
+}
+
+### delete one nurse
+DELETE http://localhost:5007/api/nurses/645cc24c986dd883ffa87b67
+
+### delete one oppointment in the nurse 
+DELETE http://localhost:5007/api/nurses/64551e79268bc957c9b9ad48/appointments/616363601d30a33b540a2305
+
+### test
+PUT http://localhost:5007/api/nurses/645a04fa9ce715da7a4dbdf9
+Content-Type: application/json
+
+{
+  "refreshToken":[]
+}
+
+### test mochkol 
+DELETE http://127.0.0.1:5007/api/nurses/645fec5d4d9504cfa8ac074c/absences/6460a41893f37b78629b5ce9

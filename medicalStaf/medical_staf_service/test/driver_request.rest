@@ -1,0 +1,60 @@
+### get all drivers
+GET http://localhost:5007/api/drivers
+
+### get one driver by email or by refreshToken :
+### test1:
+GET http://localhost:5007/api/drivers/query/?email=dania@example.com
+### test2:
+GET http://localhost:5007/api/drivers/query/?refreshToken=ksjdlkfj
+### test3: 
+GET http://localhost:5007/api/drivers/query/?email=johndo@example.co
+
+### get one driver by id 
+GET http://localhost:5007/api/drivers/645d10d33797b33136d1bbbb
+
+### create one driver
+POST http://localhost:5007/api/drivers
+Content-Type: application/json
+
+{
+  "first_name": "Danial",
+  "last_name": "Dalas",
+  "email_address": "daniam@example.com",
+  "password": "password123",
+  "gender": "male",
+  "phone_number": "1234567",
+  "birth_date": "1990-01-01",
+  "location": {
+    "address": "123 Main St",
+    "country": "USA",
+    "city": "New York"
+  }
+}
+
+### update one driver 
+PUT http://localhost:5007/api/drivers/645d10d33797b33136d1bbbb
+Content-Type: application/json
+
+{
+  "first_name": "Joh",
+  "last_name": "Dok",
+  "gender": "female",
+  "tasks": ["616363601d30a33b540a2305","616363601d30a33b540a2305"],
+  "image":"616363601d30a33b540a2305", 
+  "absences":"616363601d30a33b540a230f",
+  "refreshToken":["jdlkjsl","kdjlsj","ksjdlkfj"]
+}
+
+### delete one driver
+DELETE http://localhost:5007/api/drivers/645d13a791340d5bb811b93e
+
+### delete one absences in the driver 
+DELETE http://localhost:5007/api/drivers/645d13a791340d5bb811b93e/absences/616363601d30a33b540a230f
+
+### test
+PUT http://localhost:5007/api/drivers/645a04fa9ce715da7a4dbdf9
+Content-Type: application/json
+
+{
+  "refreshToken":[]
+}
