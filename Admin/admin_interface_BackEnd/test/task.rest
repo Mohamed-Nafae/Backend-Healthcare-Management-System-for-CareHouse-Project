@@ -1,0 +1,14 @@
+### get all tasks
+GET http://127.0.0.1:5011/api/admins/id/tasks
+
+### get one task id 
+GET http://127.0.0.1:5011/api/admins/id/tasks/6465f92cd9c6d85fa57d9b14
+
+### update one task id
+PUT http://127.0.0.1:5011/api/admins/id/tasks/6465f92cd9c6d85fa57d9b14
+Content-Type: application/json
+
+{
+    "team":"B",
+    "order":1
+}

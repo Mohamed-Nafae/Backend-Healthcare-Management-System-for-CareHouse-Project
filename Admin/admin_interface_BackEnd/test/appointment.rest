@@ -1,0 +1,8 @@
+### get all appointents
+GET http://127.0.0.1:5011/api/admins/id/appointments
+
+### get all appointments by query
+GET http://127.0.0.1:5011/api/admins/id/appointments/query?typeofAppointment=Consultation&status=waiting
+
+### delete appointment id 
+DELETE http://127.0.0.1:5011/api/admins/id/appointments/6464b1067ecb2afe3d0e7139

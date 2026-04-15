@@ -1,0 +1,73 @@
+### get all doctors 
+GET http://127.0.0.1:5011/api/admins/64660f5d76208ae1b8afe204/doctors
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDY2MGY1ZDc2MjA4YWUxYjhhZmUyMDQiLCJlbWFpbF9hZGRyZXNzIjoiam9obmRvZUBleGFtcGxlLmNvbSIsInJvbGUiOjUxNjgsImlhdCI6MTY4NDQxMzU2NSwiZXhwIjoxNjg0NDE0MTY1fQ.EhOFO8MxPBp0is5b6FyU8AFcg3xMKRhok3xls_yqG9g
+
+### create one doctor 
+POST http://127.0.0.1:5011/api/admins/id/doctors
+Content-Type: application/json
+
+{
+  "first_name": "Danial",
+  "last_name": "Dalas",
+  "email_address": "danial@example.com",
+  "password": "password123",
+  "gender": "male",
+  "phone_number": "123456789",
+  "birth_date": "1990-01-01",
+  "speciality":"Pediatrics",
+  "location": {
+    "address": "123 Main St",
+    "country": "USA",
+    "city": "New York"
+  }
+}
+
+### get one doctor by id 
+GET http://127.0.0.1:5011/api/admins/id/doctors/645d10693797b33136d1bbb3
+
+### update one doctor by id 
+PUT http://127.0.0.1:5011/api/admins/id/doctors/645d10693797b33136d1bbb3
+Content-Type: application/json
+
+{
+  "first_name": "salah",
+  "last_name": "moh",
+  "password": "password123",
+  "gender": "male"
+}
+
+### delete one doctor by id 
+DELETE http://127.0.0.1:5011/api/admins/id/doctors/64660c8858d88e30454c61c3
+
+### display one image by doctor id 
+GET http://127.0.0.1:5011/api/admins/id/doctors/645d10693797b33136d1bbb3/image
+
+### update one image by doctor id 
+PUT http://127.0.0.1:5011/api/admins/id/doctors/6465277209354a7b3c9c8bdc/image
+Content-Type: multipart/form-data; boundary=IamSplitter
+
+--IamSplitter
+Content-Disposition: form-data; name="file"; filename="Capture.png"
+Content-Type: image/png
+
+< ./Capture.PNG
+--IamSplitter--
+
+### get all tasks in one doctor by id 
+GET http://127.0.0.1:5011/api/admins/id/doctors/645d10693797b33136d1bbb3/tasks
+
+### create one task by id in doctor id
+POST http://127.0.0.1:5011/api/admins/id/doctors/645d10693797b33136d1bbb3/tasks
+Content-Type: application/json
+
+{
+  "date":"5/18/2023",
+  "appointment":"6464b1067ecb2afe3d0e7139",
+  "team":"A"
+}
+
+### delete one task in doctor id 
+DELETE http://127.0.0.1:5011/api/admins/id/doctors/645d10693797b33136d1bbb3/tasks/6465f92cd9c6d85fa57d9b14
+
+### get all absences in doctor id
+GET http://127.0.0.1:5011/api/admins/id/doctors/645d10693797b33136d1bbb3/absences
