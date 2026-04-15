@@ -1,0 +1,32 @@
+### get all tasks
+GET http://localhost:5009/api/tasks
+
+### get all tasks in medical staff id
+GET http://localhost:5009/api/tasks/medicalStaffs/645fec5d4d9504cfa8ac074c
+
+### get one task id
+GET http://localhost:5009/api/tasks/645f44ff490f2c9cfe8b22a9
+
+### create one task id
+POST http://localhost:5009/api/tasks
+Content-Type: application/json
+
+{
+  "appointment": "6462103dddd8f38b2696b195",
+  "medicalStaff": "645d10693797b33136d1bbb3"
+}
+
+### update reason in one task id 
+PUT http://localhost:5009/api/tasks/645f44ff490f2c9cfe8b22a9
+Content-Type: application/json
+
+{
+  "finished": true,
+  "qrCode_id":"abcd1234"
+}
+
+### delete one task id
+DELETE http://localhost:5009/api/tasks/645f456589f9dc685f2aefad
+
+### delete tasks in doctor id 
+DELETE http://localhost:5009/api/tasks/medicalStaffs/611ed0ccf1120641ecb4df0f
