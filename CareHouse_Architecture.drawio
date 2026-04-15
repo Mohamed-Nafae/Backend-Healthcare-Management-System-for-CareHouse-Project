@@ -1,0 +1,166 @@
+<mxfile host="app.diagrams.net" modified="2026-04-15T10:00:00.000Z" agent="Mozilla/5.0" version="24.0.0" type="device">
+  <diagram id="system_architecture" name="CareHouse System Architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="900" background="#ffffff" math="0" shadow="1">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="CareHouse Microservices Architecture" style="text;html=1;fontSize=24;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="500" y="20" width="400" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CLIENTS LAYER ============ -->
+        <mxCell id="clients_group" value="Client Interfaces" style="rounded=1;fillColor=#E3F2FD;strokeColor=#1976D2;strokeWidth=2;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="80" width="300" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="patient_client" value="👥 Patient Client" style="rounded=1;fillColor=#90CAF9;strokeColor=#1565C0;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="70" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="admin_client" value="👥 Admin Client" style="rounded=1;fillColor=#90CAF9;strokeColor=#1565C0;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="165" y="100" width="70" height="40" as="geometry" />
+        </mxCell>
+
+        <mxCell id="staff_client" value="👥 Medical Staff" style="rounded=1;fillColor=#90CAF9;strokeColor=#1565C0;fontSize=11;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="100" width="70" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ============ GATEWAYS LAYER ============ -->
+        <mxCell id="gateways_group" value="API Gateways (Authentication &amp; Routing)" style="rounded=1;fillColor=#F3E5F5;strokeColor=#7B1FA2;strokeWidth=2;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="50" y="240" width="300" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="gateway_5000" value="Port 5000&#10;Patient Gateway" style="rounded=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="70" y="260" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="gateway_5011" value="Port 5011&#10;Admin Gateway" style="rounded=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="165" y="260" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="gateway_5006" value="Port 5006&#10;Medical Gateway" style="rounded=1;fillColor=#CE93D8;strokeColor=#6A1B9A;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="260" y="260" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ============ CONNECTING CLIENTS TO GATEWAYS ============ -->
+        <mxCell id="conn_pc_5000" value="" style="endArrow=classic;rounded=0;strokeColor=#424242;strokeWidth=2;" edge="1" parent="1" source="patient_client" target="gateway_5000">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn_ac_5011" value="" style="endArrow=classic;rounded=0;strokeColor=#424242;strokeWidth=2;" edge="1" parent="1" source="admin_client" target="gateway_5011">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn_sc_5006" value="" style="endArrow=classic;rounded=0;strokeColor=#424242;strokeWidth=2;" edge="1" parent="1" source="staff_client" target="gateway_5006">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ============ PATIENT SERVICES ============ -->
+        <mxCell id="patient_services_group" value="Patient Module Services" style="rounded=1;fillColor=#E0F2F1;strokeColor=#00796B;strokeWidth=2;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="80" width="310" height="280" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5001" value="Port 5001&#10;Appointments" style="rounded=1;fillColor=#4DB6AC;strokeColor=#00695C;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="440" y="100" width="60" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5002" value="Port 5002&#10;Medical Folders" style="rounded=1;fillColor=#4DB6AC;strokeColor=#00695C;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="520" y="100" width="60" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5003" value="Port 5003&#10;Patient Service" style="rounded=1;fillColor=#4DB6AC;strokeColor=#00695C;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="600" y="100" width="60" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5004" value="Port 5004&#10;File Service" style="rounded=1;fillColor=#4DB6AC;strokeColor=#00695C;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="660" y="100" width="60" height="45" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5005" value="Port 5005&#10;Reports" style="rounded=1;fillColor=#4DB6AC;strokeColor:#00695C;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="440" y="180" width="60" height="45" as="geometry" />
+        </mxCell>
+
+        <!-- ============ ADMIN SERVICES ============ -->
+        <mxCell id="admin_services_group" value="Admin Module Services" style="rounded=1;fillColor=#FCE4EC;strokeColor:#C2185B;strokeWidth=2;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="240" width="280" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5010" value="Port 5010&#10;Admin Service" style="rounded=1;fillColor=#F48FB1;strokeColor=#AD1457;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="820" y="260" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ============ MEDICAL STAFF SERVICES ============ -->
+        <mxCell id="staff_services_group" value="Medical Staff Module Services" style="rounded=1;fillColor=#F1F8E9;strokeColor=#558B2F;strokeWidth=2;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="420" width="310" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5007" value="Port 5007&#10;Staff Profiles" style="rounded=1;fillColor=#9CCC65;strokeColor=#33691E;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="440" y="440" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5008" value="Port 5008&#10;Absences" style="rounded=1;fillColor=#9CCC65;strokeColor=#33691E;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="530" y="440" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="service_5009" value="Port 5009&#10;Tasks" style="rounded=1;fillColor=#9CCC65;strokeColor:#33691E;fontSize=10;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="620" y="440" width="70" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ============ DATABASE ============ -->
+        <mxCell id="database_group" value="MongoDB Database" style="rounded=1;fillColor=#FFF3E0;strokeColor:#E65100;strokeWidth=2;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="420" width="280" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="db_icon" value="🗄️ MongoDB" style="rounded=1;fillColor=#FFB74D;strokeColor:#BF360C;fontSize=14;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="850" y="480" width="180" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ============ GATEWAY TO SERVICES CONNECTIONS ============ -->
+        <!-- Port 5000 to Patient Services -->
+        <mxCell id="conn_5000_5001" value="" style="endArrow=classic;rounded=1;strokeColor=#00796B;strokeWidth=1.5;" edge="1" parent="1" source="gateway_5000" target="service_5001">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="150" y="200" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="conn_5000_5003" value="" style="endArrow=classic;rounded=1;strokeColor=#00796B;strokeWidth=1.5;" edge="1" parent="1" source="gateway_5000" target="service_5003">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Port 5011 to Services -->
+        <mxCell id="conn_5011_5010" value="" style="endArrow=classic;rounded=1;strokeColor:#C2185B;strokeWidth=1.5;" edge="1" parent="1" source="gateway_5011" target="service_5010">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Port 5006 to Services -->
+        <mxCell id="conn_5006_5007" value="" style="endArrow=classic;rounded=1;strokeColor=#558B2F;strokeWidth=1.5;" edge="1" parent="1" source="gateway_5006" target="service_5007">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn_5006_5008" value="" style="endArrow=classic;rounded=1;strokeColor:#558B2F;strokeWidth=1.5;" edge="1" parent="1" source="gateway_5006" target="service_5008">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn_5006_5009" value="" style="endArrow=classic;rounded=1;strokeColor:#558B2F;strokeWidth=1.5;" edge="1" parent="1" source="gateway_5006" target="service_5009">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Services to Database -->
+        <mxCell id="conn_svc_db" value="" style="endArrow=classic;rounded=1;strokeColor:#E65100;strokeWidth=2;dashed=1;" edge="1" parent="1" source="service_5001" target="db_icon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="conn_staff_db" value="" style="endArrow=classic;rounded=1;strokeColor=#E65100;strokeWidth=2;dashed=1;" edge="1" parent="1" source="service_5007" target="db_icon">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="Legend: Solid arrows = Direct API calls | Dashed arrows = Database access" style="text;html=1;fontSize=10;align=center;fontStyle=2;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="420" y="650" width="400" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
