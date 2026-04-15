@@ -101,7 +101,6 @@ The service will listen on `http://localhost:5011`
 admin_interface_BackEnd/
 ├── admin_app.js                         # Express app entry point
 ├── package.json                         # Dependencies and scripts
-├── .env                                 # Environment variables
 ├── middleware/
 │   ├── verifyJWT.js                    # JWT token verification
 │   ├── verifyRoles.js                  # Role-based access control
