@@ -1,0 +1,15 @@
+POST http://127.0.0.1:5004/upload/images
+Content-Type: multipart/form-data; boundary=IamSplitter
+
+--IamSplitter
+Content-Disposition: form-data; name="file"; filename="Snake.jpg"
+Content-Type: image/jpeg
+
+< ./Snake.jpg
+--IamSplitter--
+
+###     
+DELETE  http://127.0.0.1:5004/files/images/6457e29f5022365207b97083
+
+###
+GET http://127.0.0.1:5004/files/images/645fed841e6fc9f1365f8bc1
