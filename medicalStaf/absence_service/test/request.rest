@@ -1,0 +1,33 @@
+### get all absences
+GET http://localhost:5008/api/absences
+
+### get all absences in doctor id
+GET http://localhost:5008/api/absences/medicalStaffs/611ed0ccf1120641ecb4df0f
+
+### get one absence id
+GET http://localhost:5008/api/absences/645df5d120b02d58ac8d0d77
+
+### create one absence id
+POST http://localhost:5008/api/absences
+Content-Type: application/json
+
+{
+  "startDate": "2023-05-12T00:00:00.000Z",
+  "endDate": "2023-05-12T18:00:00.000Z",
+  "reason": "Sick leave",
+  "medicalStaff": "611ed0ccf1120641ecb4df0f"
+}
+
+### update reason in one absence id 
+PUT http://localhost:5008/api/absences/645df9bb836ab8b42138076c
+Content-Type: application/json
+
+{
+  "reason": "common CORONAVR"
+}
+
+### delete one absence id
+DELETE http://localhost:5008/api/absences/645df5d120b02d58ac8d0d77
+
+### delete absences in doctor id 
+DELETE http://localhost:5008/api/absences/medicalStaffs/611ed0ccf1120641ecb4df0f
