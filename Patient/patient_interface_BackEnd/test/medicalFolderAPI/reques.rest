@@ -1,0 +1,6 @@
+### Download one medical folder by patient id 
+GET https://127.0.0.1:5000/api/patients/645a04fa9ce715da7a4dbdf9/medicalFolder
+
+### get all reports in patient id 
+GET https://127.0.0.1:5000/api/patients/645ac11d6bddc90a33ed26f5/reports
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhYzExZDZiZGRjOTBhMzNlZDI2ZjUiLCJlbWFpbF9hZGRyZXNzIjoiam9obmRvQGV4YW1wbGUuY29tIiwicm9sZSI6MjAwMiwiaWF0IjoxNjg0NTY4NjMxLCJleHAiOjE2ODQ1NjkyMzF9.AnoVeQk2SUM4eQwnTPYNBPwS5ye555XxZDnK0LY8Npk

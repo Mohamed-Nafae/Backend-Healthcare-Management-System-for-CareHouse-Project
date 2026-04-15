@@ -1,0 +1,15 @@
+### login test 
+POST http://127.0.0.1:5000/api/patients/login
+Content-Type: application/json
+
+{
+    "email":"johndo@example.com",
+    "password":"password123"
+}
+
+### get access token test 
+GET http://127.0.0.1:5000/api/patients/token
+
+### logout test
+GET http://127.0.0.1:5000/api/patients/logout
+

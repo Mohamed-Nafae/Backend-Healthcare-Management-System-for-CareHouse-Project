@@ -1,0 +1,57 @@
+### get one patient by id 
+GET http://127.0.0.1:5000/api/patients/645ac8a56bddc90a33ed270c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhYzExZDZiZGRjOTBhMzNlZDI2ZjUiLCJlbWFpbF9hZGRyZXNzIjoiam9obmRvQGV4YW1wbGUuY29tIiwicm9sZSI6MjAwMiwiaWF0IjoxNjg1ODcxMzc2LCJleHAiOjE2ODU4NzE5NzZ9.tJ-MGCxwRFms455gLCA-WX_CNbwUP-wljMt3NrkXkaQ
+
+### updata one patient by id
+PUT https://127.0.0.1:5000/api/patients/6459053275abde04acd9f0a4
+Content-Type: application/json
+
+{
+  "first_name": "Joh",
+  "last_name": "Dok",
+  "gender": "female"
+}
+
+### update one image by patient id  
+PUT http://127.0.0.1:5000/api/patients/645ac11d6bddc90a33ed26f5/image
+Content-Type: multipart/form-data; boundary=IamSplitter
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhYzExZDZiZGRjOTBhMzNlZDI2ZjUiLCJlbWFpbF9hZGRyZXNzIjoiam9obmRvQGV4YW1wbGUuY29tIiwicm9sZSI6MjAwMiwiaWF0IjoxNjg1ODcxMzc2LCJleHAiOjE2ODU4NzE5NzZ9.tJ-MGCxwRFms455gLCA-WX_CNbwUP-wljMt3NrkXkaQ
+
+--IamSplitter
+Content-Disposition: form-data; name="file"; filename="download.png"
+Content-Type: image/png
+
+< ./download.png
+--IamSplitter--
+
+
+### create one patient 
+POST http://127.0.0.1:5000/api/patients/register
+Content-Type: multipart/form-data; boundary=IamSplitter
+
+--IamSplitter
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "email_address": "johndo@example.com",
+  "password": "password123",
+  "gender": "male",
+  "phone_number": "123456789",
+  "birth_date": "1990-01-01",
+  "location": {
+    "address": "123 Main St",
+    "country": "USA",
+    "city": "New York",
+    "longitude": 40.7128,
+    "latitude": -74.0060
+  }
+}
+--IamSplitter
+Content-Disposition: form-data; name="file"; filename="BM.pdf"
+Content-Type: application/pdf
+
+< ./BM.pdf
+--IamSplitter--

@@ -1,0 +1,5 @@
+### get all reports in patient id 
+GET http://127.0.0.1:5000/api/patients/645906fa75abde04acd9f0be/reports
+
+### download one report id
+GET http://127.0.0.1:5000/api/patients/645a04fa9ce715da7a4dbdf9/reports/645a06013ec2165719cb1208

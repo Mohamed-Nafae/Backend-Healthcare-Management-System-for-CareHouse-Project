@@ -1,0 +1,32 @@
+### get all appointents
+GET https://127.0.0.1:5000/api/patients/appointments
+
+### get all appointents by patient id 
+GET http://127.0.0.1:5000/api/patients/645ac11d6bddc90a33ed26f5/appointments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhYzExZDZiZGRjOTBhMzNlZDI2ZjUiLCJlbWFpbF9hZGRyZXNzIjoiam9obmRvQGV4YW1wbGUuY29tIiwicm9sZSI6MjAwMiwiaWF0IjoxNjg2MjA4ODEzLCJleHAiOjE2ODYyMDk0MTN9.HpmmRxferTl2l_bomirrzAmqodV4dWhMq-DBCYsG0q8
+
+### get one appointments by id
+GET https://127.0.0.1:5000/api/patients/6453c463032b03b47958b74f/appointments/64561a4ef0ee69fd6df6f280
+
+### create one appointment by patient id 
+POST https://127.0.0.1:5000/api/patients/645ac11d6bddc90a33ed26f5/appointments
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDVhYzExZDZiZGRjOTBhMzNlZDI2ZjUiLCJlbWFpbF9hZGRyZXNzIjoiam9obmRvQGV4YW1wbGUuY29tIiwicm9sZSI6MjAwMiwiaWF0IjoxNjg0MTQ4MjcxLCJleHAiOjE2ODQxNDg4NzF9.H5j1d5-AsbDQnxiiK04SLyHvrHtKRd4spXOwuTJJwoY
+Content-Type: application/json
+
+{
+    "typeofAppointment": "Consultation",
+    "qrCode_id": "abcd1234"
+}
+
+### update one appointment by id
+PUT https://127.0.0.1:5000/api/patients/645ac11d6bddc90a33ed26f5/appointments/6459da8d444328a911880a36
+Content-Type: application/json
+
+{
+    "date": "2023-06-01",
+    "time": "11:00 AM",
+    "status": "Scheduled"
+}
+
+### delete one appointment by id 
+DELETE https://127.0.0.1:5000/api/patients/645906fa75abde04acd9f0be/appointments/6459da8d444328a911880a36
