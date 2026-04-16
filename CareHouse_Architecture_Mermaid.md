@@ -491,32 +491,5 @@ graph LR
 
 ---
 
-## 📋 Architecture Enhancements Summary
-
-### Key Security Improvements:
-1. **External clients can ONLY access services via public gateways** (Ports 5000, 5006, 5011)
-2. **Internal services are isolated** - cannot be reached directly from outside the network
-3. **Gateway Authentication** - All external requests require valid JWT tokens
-4. **Server Isolation** - Services grouped by server, with limited internal communication
-5. **Clear Network Boundaries** - Visual separation between DMZ, internal network, and database layer
-
-### Communication Rules:
-- **External → Internal**: Only through designated gateway with JWT authentication
-- **Internal → Internal (Same Server)**: Allowed for service coordination
-- **Internal → Internal (Different Server)**: Only through their respective gateways
-- **All Services → Database**: Direct access to MongoDB for data persistence
-
-### Enhanced Diagrams:
-1. **System Overview** - Shows firewall protection and server isolation
-2. **Network Security Policy** - Detailed DMZ and internal network boundaries
-3. **Communication Matrix** - Clarifies access control and routing rules
-4. **Flow Diagrams** - Enhanced with activation boxes, parallel operations, and detailed steps
-
----
-
-**Version:** 2.0 (Enhanced)  
-**Last Updated:** April 2026  
-**Format:** Mermaid Diagrams  
-**Security Level:** Internal Architecture Documentation  
-**Usage:** Import diagrams into draw.io, Obsidian, or other Mermaid-compatible tools
-
+## License
+apache-2.0 License
