@@ -106,7 +106,7 @@ The backend is built using **microservices architecture** with 12 independent se
 
 ### Network Architecture
 
-![CareHouse Network Architecture](./architecture-diagram.svg)
+![CareHouse Network Architecture](./CareHouse_Architecture.svg)
 
 **Architecture Overview:**
 - **External Network**: Internet users (patients, staff, admins)
