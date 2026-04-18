@@ -10,6 +10,25 @@
 > A comprehensive, scalable backend architecture for a healthcare management system designed with microservices pattern. CareHouse Backend provides RESTful APIs for patient management, medical staff coordination, and administrative oversight through 12 microservices and 3 API gateways.
 
 
+### 🎯 Quick Stats
+
+| Component | Count | Purpose |
+|-----------|-------|---------|
+| **Microservices** | 12 | Core business logic |
+| **API Gateways** | 3 | External access & routing |
+| **Subsystems** | 3 | Patient, Admin, Medical |
+| **Database** | 1 | MongoDB (shared) |
+
+### 📦 What's Included
+
+- ✅ **12 Microservices** - Patient (5), Medical (3), Admin (1), Shared (3)
+- ✅ **3 API Gateways** - JWT authentication, request routing, load-balancing ready
+- ✅ **3 Complete Subsystems** - Separated by concern and domain
+- ✅ **MongoDB Integration** - Mongoose ODM, GridFS file storage
+- ✅ **Enterprise Security** - RBAC, bcrypt hashing, JWT tokens, CORS
+- ✅ **Complete Documentation** - Architecture diagrams, data flows, API docs
+
+
 ## 📖 Table of Contents
 
 - [Project Overview](#-project-overview)
@@ -21,8 +40,6 @@
 - [Installation & Setup](#-installation--setup)
 - [Running the System](#-running-the-system)
 - [API Documentation](#-api-documentation)
-- [Services Guide](#-services-guide)
-- [Database Models](#-database-models)
 - [Security Features](#-security-features)
 - [Development](#-development)
 - [Project Team](#-project-team)
@@ -40,7 +57,6 @@
 
 The backend is built using **microservices architecture** with 12 independent services organized into three subsystems, connected through 3 API gateways, ensuring scalability, maintainability, and security. This backend exposes RESTful APIs consumed by frontend applications (web and mobile clients).
 
----
 
 ## ✨ Key Features
 
@@ -90,58 +106,13 @@ The backend is built using **microservices architecture** with 12 independent se
 
 ### Network Architecture
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    🌐 EXTERNAL NETWORK                          │
-│              (Internet Users - Patients, Staff, Admin)           │
-└──────────────────┬──────────────────────────────────────────────┘
-                   │
-┌──────────────────┼──────────────────────────────────────────────┐
-│                  │           🔐 DMZ - FIREWALLS                 │
-│   ┌──────────────┴──────────┐                                   │
-│   │  🚪 GATEWAYS (Auth)     │                                   │
-│   ├──────────────────────────┤                                   │
-│   │ 5000: Patient Gateway   │                                   │
-│   │ 5006: Medical Gateway   │                                   │
-│   │ 5011: Admin Gateway     │                                   │
-│   └──────────────────────────┘                                   │
-└────────────────────┬─────────────────────────────────────────────┘
-                     │
-┌────────────────────┼─────────────────────────────────────────────┐
-│                    │     🖥️ INTERNAL NETWORK (Private)           │
-│                    │                                              │
-│  ┌─────────────────┴──────────────┐                              │
-│  │   🖥️ SERVER INSTANCES         │                              │
-│  │                                │                              │
-│  │  ┌──────────────────────────┐  │                              │
-│  │  │ PATIENT SERVER           │  │                              │
-│  │  │ ├─ 5001: Appointments ✓  │  │                              │
-│  │  │ ├─ 5002: Med Folders ✓   │  │                              │
-│  │  │ ├─ 5003: Patient Svc ✓   │  │                              │
-│  │  │ ├─ 5004: File Service ✓  │  │                              │
-│  │  │ └─ 5005: Reports ✓       │  │                              │
-│  │  └──────────────────────────┘  │                              │
-│  │                                │                              │
-│  │  ┌──────────────────────────┐  │                              │
-│  │  │ ADMIN SERVER             │  │                              │
-│  │  │ └─ 5010: Admin Service ✓ │  │                              │
-│  │  └──────────────────────────┘  │                              │
-│  │                                │                              │
-│  │  ┌──────────────────────────┐  │                              │
-│  │  │ MEDICAL SERVER           │  │                              │
-│  │  │ ├─ 5007: Staff Profiles ✓│  │                              │
-│  │  │ ├─ 5008: Absences ✓      │  │                              │
-│  │  │ └─ 5009: Tasks ✓         │  │                              │
-│  │  └──────────────────────────┘  │                              │
-│  │                                │                              │
-│  │  ┌──────────────────────────┐  │                              │
-│  │  │ DATABASE LAYER           │  │                              │
-│  │  │ └─ MongoDB (Shared)      │  │                              │
-│  │  └──────────────────────────┘  │                              │
-│  └────────────────────────────────┘                              │
-│                                                                   │
-└───────────────────────────────────────────────────────────────────┘
-```
+![CareHouse Network Architecture](./architecture-diagram.svg)
+
+**Architecture Overview:**
+- **External Network**: Internet users (patients, staff, admins)
+- **DMZ (Firewall Protected)**: 3 API Gateways with JWT authentication
+- **Private Internal Network**: 3 server instances with 12 microservices
+- **Database Layer**: Shared MongoDB instance
 
 ### Communication Flow
 
@@ -193,6 +164,7 @@ CareHouse Project/
 ├── README.md                                  # This file
 ├── CareHouse_Architecture_Mermaid.md         # System architecture diagrams
 ├── CareHouse_Architecture.drawio             # Draw.io diagram file
+├── architecture-diagram.svg                   # Network architecture diagram
 ├── COMPLETE_SYSTEM_DATA_FLOW.md              # Detailed data flow documentation
 │
 ├── Admin/                                     # Admin Subsystem
@@ -282,6 +254,43 @@ Ensure the following ports are available:
 
 ---
 
+## ⚡ Getting Started in 5 Minutes
+
+```bash
+# 1. Clone repository
+git clone <repository-url>
+cd Backend-Healthcare-Management-System-for-CareHouse-Project
+
+# 2. Install all dependencies (run in each service)
+cd Patient/patient_interface_BackEnd && npm install
+cd Patient/patient_service && npm install
+# ... repeat for other services
+
+# 3. Create .env files with MongoDB URI in each service
+
+# 4. Start MongoDB
+mongod
+
+# 5. Start services in separate terminals
+# Terminal 1 (Patient Gateway)
+cd Patient/patient_interface_BackEnd && npm start
+
+# Terminal 2 (Medical Gateway)
+cd medicalStaf/medical_staff_interface_BackEnd && npm start
+
+# Terminal 3 (Admin Gateway)
+cd Admin/admin_interface_BackEnd && npm start
+
+# All microservices will start automatically through gateway configuration
+```
+
+✅ **System is ready!** API gateways are running at:
+- Patient: http://localhost:5000
+- Medical Staff: http://localhost:5006
+- Admin: http://localhost:5011
+
+---
+
 ## 🚀 Installation & Setup
 
 ### Step 1: Clone the Project
@@ -289,7 +298,7 @@ Ensure the following ports are available:
 ```bash
 # Clone or download the project
 git clone <repository-url>
-cd CareHouse-Backend---Healthcare-Management-System
+cd Backend-Healthcare-Management-System-for-CareHouse-Project
 ```
 
 ### Step 2: MongoDB Setup
@@ -371,7 +380,7 @@ npm start
 mongod
 ```
 
-**Terminal 2 - Microservices (can run in parallel):**
+**Terminal 2 - Microservices (start in parallel):**
 ```bash
 # Patient Services
 cd Patient/patient_service && npm start
@@ -389,7 +398,7 @@ cd medicalStaf/absence_service && npm start
 cd medicalStaf/task_service && npm start
 ```
 
-**Terminal 3 - API Gateways (start last):**
+**Terminal 3 - API Gateways (start after microservices):**
 ```bash
 # Patient Gateway
 cd Patient/patient_interface_BackEnd && npm start
@@ -401,9 +410,11 @@ cd Admin/admin_interface_BackEnd && npm start
 cd medicalStaf/medical_staff_interface_BackEnd && npm start
 ```
 
-### Quick Start with npm run dev
+> **Tip**: Open multiple terminal tabs/windows to run services in parallel for faster startup.
 
-Each service supports development mode with auto-reload:
+### Development Mode with Auto-Reload
+
+Each service supports development mode with auto-restart on file changes:
 
 ```bash
 npm run dev  # Development mode (auto-restart on changes)
@@ -434,197 +445,39 @@ curl http://localhost:5001/  # Appointments
 
 ## 📚 API Documentation
 
-### Base URLs
+### Quick Links to Service Documentation
 
-| Gateway | URL | Purpose |
-|---------|-----|---------|
-| Patient | `http://localhost:5000` | Patient access |
-| Admin | `http://localhost:5011` | Admin access |
-| Medical | `http://localhost:5006` | Medical staff access |
+**Patient Subsystem Services:**
+- [Patient Service](./Patient/patient_service/README.md) (Port 5003) - Registration, profiles, account management
+- [Appointment Service](./Patient/make_appoinment_service/README.md) (Port 5001) - Booking, scheduling, status tracking
+- [Medical Folder Service](./Patient/medical_folder_service/README.md) (Port 5002) - Electronic health records (EHR)
+- [File Service](./Patient/uplaod_file_service/README.md) (Port 5004) - Document upload and storage with GridFS
+- [Report Service](./Patient/report_service/README.md) (Port 5005) - Medical reports and documentation
 
-### Authentication
+**Medical Staff Subsystem Services:**
+- [Staff Profiles](./medicalStaf/medical_staf_service/README.md) (Port 5007) - Doctor, Nurse, Driver management
+- [Absence Service](./medicalStaf/absence_service/README.md) (Port 5008) - Leave and absence tracking
+- [Task Service](./medicalStaf/task_service/README.md) (Port 5009) - Task assignment and QR verification
 
-All protected endpoints require:
+**Admin Subsystem Services:**
+- [Admin Service](./Admin/admin_service/README.md) (Port 5010) - System administration and oversight
 
-```
-Authorization: Bearer <accessToken>
-Or
-Cookie: jwt=<accessToken>
-```
+### API Documentation Details
 
-### Common Endpoints
+Each service README includes:
+- ✅ **Endpoint Specifications** - Complete list of routes and methods
+- ✅ **Request/Response Formats** - JSON structure examples
+- ✅ **Authentication Requirements** - JWT token usage and roles
+- ✅ **Error Handling** - Status codes and error messages
+- ✅ **Code Examples** - Usage patterns and integration guides
 
-#### Patient Gateway (5000)
-```
-POST   /auth/register          # Patient registration
-POST   /auth/login             # Patient login
-POST   /auth/logout            # Patient logout
-GET    /auth/refresh           # Refresh access token
-GET    /api/appointments       # Get appointments
-GET    /api/medical-records    # Get medical records
-```
+### Architecture & Data Flow
 
-#### Admin Gateway (5011)
-```
-POST   /auth/login             # Admin login
-POST   /auth/logout            # Admin logout
-POST   /api/appointments       # Create appointment
-GET    /api/staff              # Get staff list
-```
+For a comprehensive understanding of the entire system:
+- 📊 [Complete System Data Flow](./COMPLETE_SYSTEM_DATA_FLOW.md) - End-to-end data flows and interactions
+- 🏗️ [Architecture Diagrams (Mermaid)](./CareHouse_Architecture_Mermaid.md) - Visual system architecture and flows
+- 🎨 [Draw.io Diagram](./CareHouse_Architecture.drawio) - Editable architecture diagram
 
-#### Medical Staff Gateway (5006)
-```
-POST   /auth/login             # Staff login
-POST   /auth/logout            # Staff logout
-GET    /api/my-tasks           # Get assigned tasks
-PUT    /api/tasks/:id          # Complete task
-GET    /api/patients           # Get patient list
-```
-
-📖 **For complete API documentation, see individual service READMEs in each folder.**
-
----
-
-## 🏥 Services Guide
-
-### Patient Subsystem (Port 5000)
-
-| Port | Service | Purpose |
-|------|---------|---------|
-| 5000 | Patient Gateway | Entry point, authentication, routing |
-| 5001 | Appointments | Schedule, manage, track appointments |
-| 5002 | Medical Folder | Electronic health records (EHR) |
-| 5003 | Patient Service | Patient profiles and data |
-| 5004 | File Service | Document storage via GridFS |
-| 5005 | Report Service | Clinical reports and documentation |
-
-**Key Features:**
-- Patient registration with unique email/phone
-- Appointment booking and status tracking
-- Medical records access and management
-- Document upload and download
-- Report generation and viewing
-
-### Admin Subsystem (Port 5011)
-
-| Port | Service | Purpose |
-|------|---------|---------|
-| 5011 | Admin Gateway | Entry point, authentication, routing |
-| 5010 | Admin Service | Admin profiles and management |
-
-**Key Features:**
-- Admin CRUD operations
-- Appointment creation and supervision
-- Staff management coordination
-- System-wide monitoring
-
-### Medical Staff Subsystem (Port 5006)
-
-| Port | Service | Purpose |
-|------|---------|---------|
-| 5006 | Medical Gateway | Entry point, authentication, routing |
-| 5007 | Medical Staff | Doctor, nurse, driver profiles |
-| 5008 | Absence Service | Leave and absence tracking |
-| 5009 | Task Service | Task assignment and completion |
-
-**Key Features:**
-- Staff role management (Doctor, Nurse, Driver)
-- Task assignment with QR verification
-- Absence/leave tracking
-- Appointment and patient access
-- Report creation
-
-### Shared Services
-
-| Port | Service | Purpose |
-|------|---------|---------|
-| 5004 | File Service | GridFS for all file uploads |
-| DB | MongoDB | Central data storage |
-
----
-
-## 🗄️ Database Models
-
-### Patient Collection
-```javascript
-{
-  _id: ObjectId,
-  email: String (unique),
-  phone: String (unique),
-  password: String (hashed),
-  firstName: String,
-  lastName: String,
-  address: String,
-  city: String,
-  country: String,
-  coordinates: { lat: Number, lng: Number },
-  appointments: [ObjectId],
-  medical_folders: [ObjectId],
-  refreshTokens: [String],
-  profile_image: ObjectId,
-  role: 2002,
-  createdAt: Date
-}
-```
-
-### Medical Staff Collection
-```javascript
-{
-  _id: ObjectId,
-  email: String (unique),
-  phone: String (unique),
-  password: String (hashed),
-  type: String (doctor|nurse|driver),
-  specialization: String (for doctors),
-  tasks: [ObjectId],
-  absences: [ObjectId],
-  reports: [ObjectId],
-  refreshTokens: [String],
-  profile_image: ObjectId,
-  role: 1954|2021|2022,
-  createdAt: Date
-}
-```
-
-### Appointment Collection
-```javascript
-{
-  _id: ObjectId,
-  patient: ObjectId,
-  doctor: ObjectId,
-  type: String,
-  status: String (waiting|inprogress|done),
-  appointmentType: ObjectId,
-  date: Date,
-  address: String,
-  city: String,
-  country: String,
-  coordinates: { lat: Number, lng: Number },
-  notes: String,
-  qrCode: String,
-  createdAt: Date
-}
-```
-
-### Task Collection
-```javascript
-{
-  _id: ObjectId,
-  medical_staff: ObjectId,
-  appointment: ObjectId,
-  status: Boolean (finished),
-  team: [ObjectId],
-  order: Number,
-  qr_code: String,
-  address: String,
-  city: String,
-  country: String,
-  coordinates: { lat: Number, lng: Number },
-  createdAt: Date
-}
-```
-
----
 
 ## 🔒 Security Features
 
@@ -637,6 +490,16 @@ GET    /api/patients           # Get patient list
 - ✅ **Role-Based Access Control (RBAC)**: Patient (2002), Admin (5168), Doctor (1954), Nurse (2021), Driver (2022)
 - ✅ **Middleware Enforcement**: Token verification on all protected routes
 - ✅ **Gateway Protection**: Only gateways exposed to external clients
+
+### User Roles & Permissions
+
+| Role | ID | Primary Access | Capabilities |
+|------|----|--------------------|---|
+| **Patient** | 2002 | Patient Gateway (5000) | View own appointments, medical records, file uploads |
+| **Admin** | 5168 | Admin Gateway (5011) | Manage users, view reports, system oversight |
+| **Doctor** | 1954 | Medical Gateway (5006) | View appointments, patient records, create reports |
+| **Nurse** | 2021 | Medical Gateway (5006) | Manage patient tasks, update medical folder |
+| **Driver** | 2022 | Medical Gateway (5006) | View assigned tasks, update status with QR |
 
 ### Network Security
 - ✅ **Firewall Architecture**: DMZ for gateways, private network for services
@@ -766,9 +629,6 @@ This project was developed as part of a bachelor's degree program in computer sc
 - **Scale**: 12 microservices + 3 gateways + Mobile app
 - **Focus**: Healthcare system design, scalability, security
 
-### Contributors
-[Add team members and roles here]
-
 ---
 
 ## 📄 License
@@ -777,7 +637,7 @@ This project is an academic work created as part of bachelor studies. Use in acc
 
 ---
 
-## 📞 Support & Documentation
+## Support & Documentation
 
 ### Additional Resources
 - 📖 **Architecture Diagram**: `CareHouse_Architecture_Mermaid.md`
@@ -821,8 +681,8 @@ This project demonstrates:
 
 **Last Updated**: April 2026  
 **Project Year**: 2023  
-**Status**: Active & Maintained  
+**Status**: Finished  
 
 ---
 
-For questions or issues, please refer to individual service documentation or create an issue in the project repository.
+For questions or issues, please refer to individual service documentation or create an issue in the project repository. Hope this project helps you understand microservices architecture and backend development for healthcare systems!
